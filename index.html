@@ -10,25 +10,51 @@
             Hello
         </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
         <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+        <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
         <script type="text/babel">
-            function ReactDOM.render(<div>Mon élément remplace le contenu précédent</div>,document.getElementById('root'))
+
+        function Cart (){
+            const monstera = "Monstera"
+            const lierre = "Lierre"
+            const bouquet = "Bouquet de fleurs"
+            const prixMonst = 8
+            const prixLierre = 10
+            const prixBqt = 15
+
+            return (<div>
+                <ul>Liste des articles :
+                    <li>{monstera}: {prixMonst}€</li>
+                    <li>{lierre}: {prixLierre}€</li>
+                    <li>{bouquet}: {prixBqt}€</li>
+                </ul>
+                <p>Totale des articles : {prixBqt + prixLierre + prixMonst}</p>
+                </div>)
+        }
+        function Banner() {
+            return (<div>
+                <Header />
+                <Description />
+            </div>)
+        }
+        
+        function Description() {
+            const text = "Ici achetez toutes les plantes dont vous avez toujours rêvées"
+            const emojis = "🤑🤑🤑"
+            return (<p>{ text.slice(0, 11) + emojis }</p>)
+        }        
+        function Header(){
+            const titre = "La maison Jungle"
+            return(<h1>{titre}</h1>)
+        }
+
+            ReactDOM.render(
+                <div>
+                    <Banner/>
+                    <Cart/>
+                </div>,
+                document.getElementById('root'))
         </script>
 
     </body>
